@@ -52,3 +52,11 @@ git pull
 mvnw package
 mvnw verify
 ```
+
+## Lab 5
+
+Adminisztrátorként indított parancssorban:
+
+```
+net localgroup docker-users %USERDOMAIN%\%USERNAME% /add
+```
