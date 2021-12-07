@@ -26,3 +26,5 @@ cd C:\training\java-ci-2021-12-07
 mvnw package
 mvnw spring-boot:run
 ```
+
+Elérhető a `http://localhost:8080/swagger-ui.html` 
