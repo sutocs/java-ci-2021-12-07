@@ -28,3 +28,8 @@ mvnw spring-boot:run
 ```
 
 Elérhető a `http://localhost:8080/swagger-ui.html` 
+
+```
+mvnw versions:display-dependency-updates
+mvnw dependency:tree
+```
