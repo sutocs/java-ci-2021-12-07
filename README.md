@@ -33,3 +33,22 @@ Elérhető a `http://localhost:8080/swagger-ui.html`
 mvnw versions:display-dependency-updates
 mvnw dependency:tree
 ```
+
+## Lab 3
+
+* Tesztlefedettség
+
+```
+git pull
+mvnw package
+```
+
+## Lab 4
+
+* Integrációs tesztekről, H2 embedded db-vel
+
+```
+git pull
+mvnw package
+mvnw verify
+```
