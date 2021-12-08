@@ -85,3 +85,10 @@ mvnw -Dspring.datasource.url=jdbc:mariadb://localhost/employees -Dspring.datasou
 mvnw -Dspring.datasource.url=jdbc:h2:mem:db;DB_CLOSE_DELAY=-1 -Dspring.datasource.username=sa -Dspring.datasource.password=sa verify
 ```
 
+## Lab 7 - Docker
+
+NGINX indítása volume-mal:
+
+```
+docker run -d -p8080:80 -v %CD%\nginx-share:/usr/share/nginx/html --name my-nginx nginx
+```
