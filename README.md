@@ -108,4 +108,15 @@ git pull
 mvnw package
 docker build -t employees .
 docker run -d -p8080:8080 --name my-employees employees
+docker logs -f my-employees
+```
+
+## Lab 10 - Két kapcsolódó konténer
+
+```
+docker network create employees-net
+
+docker run -d -e MYSQL_DATABASE=employees  -e MYSQL_USER=employees -e MYSQL_PASSWORD=employees -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -p 3307:3306 --name employees-app-mariadb --network employees-net mariadb
+
+docker run -d -p8081:8080 --name employees-app --network employees-net -e SPRING_DATASOURCE_URL=jdbc:mariadb://employees-app-mariadb/employees -e SPRING_DATASOURCE_USERNAME=employees -e SPRING_DATASOURCE_PASSWORD=employees employees
 ```
