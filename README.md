@@ -92,3 +92,11 @@ NGINX indítása volume-mal:
 ```
 docker run -d -p8080:80 -v %CD%\nginx-share:/usr/share/nginx/html --name my-nginx nginx
 ```
+
+## Lab 8 - Saját Docker image
+
+```
+cd hello-world
+docker build -t hello-world-java .
+docker run hello-world-java
+```
