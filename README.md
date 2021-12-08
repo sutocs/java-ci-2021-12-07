@@ -75,3 +75,13 @@ docker run -d -e MYSQL_DATABASE=employees  -e MYSQL_USER=employees -e MYSQL_PASS
 
 Átírni az `application.properties` fájlt.
 
+## Lab 6
+
+Integrációs teszt futtatása parancssori konfigurációval:
+
+```
+mvn -Dspring.datasource.url=jdbc:mariadb://localhost/employees -Dspring.datasource.username=employees -Dspring.datasource.password=employees verify
+
+mvn -Dspring.datasource.url=jdbc:h2:mem:db;DB_CLOSE_DELAY=-1 -Dspring.datasource.username=sa -Dspring.datasource.password=sa verify
+```
+
