@@ -120,3 +120,12 @@ docker run -d -e MYSQL_DATABASE=employees  -e MYSQL_USER=employees -e MYSQL_PASS
 
 docker run -d -p8081:8080 --name employees-app --network employees-net -e SPRING_DATASOURCE_URL=jdbc:mariadb://employees-app-mariadb/employees -e SPRING_DATASOURCE_USERNAME=employees -e SPRING_DATASOURCE_PASSWORD=employees employees
 ```
+
+## Lab 11 - Docker Compose
+
+```
+cd employees-app
+docker compose up -d
+docker compose logs
+docker compose down
+```
