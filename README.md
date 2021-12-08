@@ -100,3 +100,12 @@ cd hello-world
 docker build -t hello-world-java .
 docker run hello-world-java
 ```
+
+## Lab 9 - Saját employees Docker image
+
+```
+git pull
+mvnw package
+docker build -t employees .
+docker run -d -p8080:8080 --name my-employees employees
+```
