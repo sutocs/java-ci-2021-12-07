@@ -129,3 +129,22 @@ docker compose up -d
 docker compose logs
 docker compose down
 ```
+
+## Lab 12 - Postman tesztesetek
+
+```javascript
+pm.test("Status code is 201", function () {
+    pm.response.to.have.status(201);
+});
+
+pm.test("Has name", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.name).to.eql("John Doe");
+});
+```
+
+```javascript
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+```
