@@ -175,3 +175,9 @@ docker exec -it gl-gitlab-1 grep "Password:" /etc/gitlab/initial_root_password
 ```
 
 Bejelentkezés: `root` felhasználóval
+
+## Lab 16 - Runner regisztráció
+
+```
+docker exec -it gl-gitlab-runner-1 gitlab-runner register --non-interactive --url http://gl-gitlab-1 --registration-token ghe3_RWy7gqiAhYuQSBA --executor docker --docker-image docker:20.10.11 --docker-network-mode gl_default --clone-url http://gl-gitlab-1 --docker-volumes /var/run/docker.sock:/var/run/docker.sock
+```
