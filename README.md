@@ -198,7 +198,7 @@ build-job:
     - echo "Hello Pipeline"
 ```
 
-* Regisztráció a Docker Hub
+* Regisztráció a Docker Hubon (https://hub.docker.com/)
   
 Parancs:
 
