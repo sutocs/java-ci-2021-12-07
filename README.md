@@ -274,9 +274,7 @@ image-job:
 # Lab 19 - SonarQube
 
 ```
-docker run --name employees-sonarqube -d 
-  -p 9000:9000 
-  sonarqube:lts
+docker run --name employees-sonarqube -d -p 9000:9000 sonarqube:lts
 ```
 
 Felhasználónév, jelszó: `admin` / `admin`
@@ -289,4 +287,17 @@ mvnw -Dsonar.login=70fe8dfd7d6fa4bb249aa648cd7b87afd912fc22 sonar:sonar
 
 ```
 mvnw -Dsonar.host.url=http://sonar.internal:9000 -Dsonar.login=70fe8dfd7d6fa4bb249aa648cd7b87afd912fc22 sonar:sonar
+```
+
+## Lab 20 
+
+```
+docker run --rm training360/hello-world-java
+```
+
+## Lab 21 - Nexus indítása
+
+```
+docker run --name employees-nexus --detach --publish 8091:8081 --publish 8092:8082   --volume nexus-data:/nexus-data sonatype/nexus3
+docker exec -it employees-nexus cat /nexus-data/admin.password
 ```
