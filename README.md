@@ -278,3 +278,15 @@ docker run --name employees-sonarqube -d
   -p 9000:9000 
   sonarqube:lts
 ```
+
+Felhasználónév, jelszó: `admin` / `admin`
+
+Token: User > My Account > Security 
+
+```
+mvnw -Dsonar.login=70fe8dfd7d6fa4bb249aa648cd7b87afd912fc22 sonar:sonar
+```
+
+```
+mvnw -Dsonar.host.url=http://sonar.internal:9000 -Dsonar.login=70fe8dfd7d6fa4bb249aa648cd7b87afd912fc22 sonar:sonar
+```
