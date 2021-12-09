@@ -209,7 +209,7 @@ docker pull eclipse-temurin:17-focal
 git update-index --chmod=+x mvnw
 ```
 
-```
+```yaml
 image: eclipse-temurin:17-focal
 
 stages:
@@ -220,5 +220,54 @@ build-job:
   script:
     - echo "Hello Pipeline"
     - ./mvnw package
+```
+
+# Lab 17 - Pipeline cache
+
+```yaml
+variables:
+   MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+
+cache:
+  paths:
+    - .m2/repository
+```
+
+# Lab 18 - Pipeline 3 stage-gel
+
+```yaml
+variables:
+   MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+
+cache:
+  paths:
+    - .m2/repository
+
+image: eclipse-temurin:17-alpine
+
+stages:
+  - build
+  - test
+  - image
+
+build-job:
+  stage: build
+  script:
+    - echo "Hello Pipeline"
+    - ./mvnw package
+  artifacts:
+    paths:
+      - target
+
+test-job:
+  stage: test
+  script:
+    - ./mvnw verify
+
+image-job:
+  stage: image
+  image: docker:20.10.11
+  script:
+    - docker build -t hello-world-java .
 ```
 
