@@ -197,3 +197,27 @@ build-job:
   script:
     - echo "Hello Pipeline"
 ```
+
+* Regisztráció a Docker Hub
+  
+Parancs:
+
+```
+docker login
+docker pull docker:20.10.11
+git update-index --chmod=+x mvnw
+```
+
+```
+image: eclipse-temurin:17-focal
+
+stages:
+  - build
+
+build-job:
+  stage: build
+  script:
+    - echo "Hello Pipeline"
+    - ./mvnw package
+```
+
