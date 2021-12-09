@@ -181,3 +181,19 @@ Bejelentkezés: `root` felhasználóval
 ```
 docker exec -it gl-gitlab-runner-1 gitlab-runner register --non-interactive --url http://gl-gitlab-1 --registration-token ghe3_RWy7gqiAhYuQSBA --executor docker --docker-image docker:20.10.11 --docker-network-mode gl_default --clone-url http://gl-gitlab-1 --docker-volumes /var/run/docker.sock:/var/run/docker.sock
 ```
+
+## Lab 17 - First pipeline
+
+`.gitlab-ci.yml`
+
+```
+image: eclipse-temurin:17-focal
+
+stages:
+  - build
+
+build-job:
+  stage: build
+  script:
+    - echo "Hello Pipeline"
+```
