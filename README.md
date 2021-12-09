@@ -152,3 +152,10 @@ pm.test("Status code is 200", function () {
 ```
 docker compose up --abort-on-container-exit
 ```
+
+## Lab 13 - GitLab image letöltése
+
+```
+docker pull gitlab/gitlab-ce:latest
+docker pull gitlab/gitlab-runner:alpine
+```
