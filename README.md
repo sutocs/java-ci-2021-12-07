@@ -159,3 +159,16 @@ docker compose up --abort-on-container-exit
 docker pull gitlab/gitlab-ce:latest
 docker pull gitlab/gitlab-runner:alpine
 ```
+
+## Lab 14 - Layered
+
+```
+docker build -f Dockerfile.layered -t employees . 
+```
+
+## Lab 15 - GitLab infrastruktúra elindítása
+
+```
+cd gl
+docker compose up -d
+```
