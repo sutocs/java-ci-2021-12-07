@@ -205,6 +205,7 @@ Parancs:
 ```
 docker login
 docker pull docker:20.10.11
+docker pull eclipse-temurin:17-focal
 git update-index --chmod=+x mvnw
 ```
 
