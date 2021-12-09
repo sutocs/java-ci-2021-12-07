@@ -271,3 +271,10 @@ image-job:
     - docker build -t hello-world-java .
 ```
 
+# Lab 19 - SonarQube
+
+```
+docker run --name employees-sonarqube -d 
+  -p 9000:9000 
+  sonarqube:lts
+```
