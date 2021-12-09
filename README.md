@@ -292,6 +292,12 @@ mvnw -Dsonar.host.url=http://sonar.internal:9000 -Dsonar.login=70fe8dfd7d6fa4bb2
 ## Lab 20 
 
 ```
+docker build -t hello-world-java .
+docker tag [username]/hello-world-java
+docker push [username]/hello-world-java
+```
+
+```
 docker run --rm training360/hello-world-java
 ```
 
@@ -300,4 +306,12 @@ docker run --rm training360/hello-world-java
 ```
 docker run --name employees-nexus --detach --publish 8091:8081 --publish 8092:8082   --volume nexus-data:/nexus-data sonatype/nexus3
 docker exec -it employees-nexus cat /nexus-data/admin.password
+```
+
+Username: `admin`
+
+```
+docker tag hello-world-java localhost:8092/hello-world-java
+docker login localhost:8092
+docker push localhost:8092/hello-world-java
 ```
