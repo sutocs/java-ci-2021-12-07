@@ -171,4 +171,7 @@ docker build -f Dockerfile.layered -t employees .
 ```
 cd gl
 docker compose up -d
+docker exec -it gl-gitlab-1 grep "Password:" /etc/gitlab/initial_root_password
 ```
+
+Bejelentkezés: `root` felhasználóval
