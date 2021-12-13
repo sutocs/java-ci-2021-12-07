@@ -1,0 +1,49 @@
+pipeline {
+    agent {
+        dockerfile {
+            filename 'Dockerfile.build'
+            args '--network jenkins --volume gradle-data:/root/.gradle'
+        }
+    }
+    stages {
+        stage('Build') { 
+            steps {
+                sh './gradlew -PbuildNumber=${BUILD_NUMBER} test assemble'
+            }
+        }
+    /*    stage('Integration tests') {
+            steps {
+                sh './gradlew integrationTest' 
+            }
+        }
+        stage('SonarQube') {
+                    steps {
+                        sh './gradlew sonarqube -Dsonar.userHome=/tmp/.sonar -Dsonar.host.url=http://employees-sonarqube:9000'
+                    }
+                }
+        stage('Publish') {
+            steps {
+                                sh './gradlew -PbuildNumber=${BUILD_NUMBER} -PnexusUrl=http://nexus:8081 -PnexusUsername=admin -PnexusPassword=admin publish'
+                            }
+        }
+        stage('Build container') {
+            steps {
+                script {
+                    def customImage = docker.build("employees:${env.BUILD_NUMBER}")
+                    // docker.withRegistry('https://registry.hub.docker.com', 'git') {
+                    // customImage.push()
+                    // }
+                }
+            }
+        }*/
+        stage('E2E test') {
+            steps {
+                script {
+                    dir ('./integration-tests') {
+                        sh 'pwd; ls -l;docker-compose -f docker-compose.prod.yml up --abort-on-container-exit '
+                    }
+                }
+            }
+        }
+    }
+}
